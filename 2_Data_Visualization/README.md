@@ -1,1 +1,0 @@
-### SecondWeek Assignments
