@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Recommender App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎶 Mood-Based Music Recommender</h1>
+  <p>Select your mood to get recommended genres:</p>
+
+  <form id="musicForm">
+    <label for="mood">Choose mood: </label>
+    <select id="mood">
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="energetic">Energetic</option>
+      <option value="relaxed">Relaxed</option>
+    </select>
+    <br>
+    <button type="button" onclick="recommend()">Get Recommendation</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    // JavaScript simulating your Python mood_to_genre dictionary
+    const mood_to_genre = {
+      "happy": ["Pop", "Dance", "Reggae"],
+      "sad": ["Blues", "Classical", "Indie"],
+      "energetic": ["Rock", "EDM", "Hip-Hop"],
+      "relaxed": ["Jazz", "Ambient", "Chillout"]
+    };
+
+    function recommend() {
+      let mood = document.getElementById("mood").value;
+      let genres = mood_to_genre[mood];
+      document.getElementById("result").innerText =
+        `For mood '${mood}', recommended genres: ${genres.join(", ")}`;
+    }
+  </script>
+
+</body>
+</html>
